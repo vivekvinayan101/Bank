@@ -7,9 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit{
 
-  acno=''
+  // acno=''
 
-  pass=''
+  // pass=''
 
   data="Your perfect banking partner"
 
@@ -27,21 +27,59 @@ ngOnInit(): void {
   
 }
 
-login(){
-  alert("login clicked")
-}
 
-acnoChange(event:any){
 
-  this.acno=event.target.value
-  console.log(this.acno);
+login(a:any,b:any){
   
-}
-passChange(event:any){
+     
+  var userDetails=this.userDetails
+  var acno=a.value
+  var pass=b.value
+  if(acno in userDetails){
 
-  this.pass=event.target.value
-  console.log(this.pass);
+    if(pass==userDetails[acno]["password"]){
+      alert("login successfull")
+    }else{
+      alert("Incorrect Password")
+    }
+
+  }else{
+    alert("Account Number incorrect or not registered yet")
+  }
+
+}
+
+// acnoChange(event:any){
+
+//   this.acno=event.target.value
+//   // console.log(this.acno);
   
-}
+// }
+// passChange(event:any){
+
+//   this.pass=event.target.value
+//   // console.log(this.pass);
+  
+// }
+
+// login(){
+
+//   var userDetails=this.userDetails
+//   var acno=this.acno
+//   var pass=this.pass
+//   if(acno in userDetails){
+
+//     if(pass==userDetails[acno]["password"]){
+//       alert("login successfull")
+//     }else{
+//       alert("Incorrect Password")
+//     }
+
+//   }else{
+//     alert("Account Number incorrect or not registered yet")
+//   }
+
+// }
 
 }
+
