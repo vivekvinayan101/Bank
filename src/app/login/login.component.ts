@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-login',
@@ -7,38 +9,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit{
 
-  // acno=''
+  acno=''
 
-  // pass=''
+  pass=''
 
   data="Your perfect banking partner"
 
-  inputplaceholder="Username"
+  inputplaceholder="Account Number"
 
-userDetails:any={
-  1000:{acno:1000,username:"anu",password:"abc123",balance:0},
-  1001:{acno:1000,username:"amal",password:"abc123",balance:0},
-  1002:{acno:1000,username:"arun",password:"abc123",balance:0},
-  1003:{acno:1000,username:"akhil",password:"abc123",balance:0}
-}
-constructor(){}
+
+constructor(private router:Router, private ds:DataService){}
 
 ngOnInit(): void {
   
 }
 
+login(){
 
-
-login(a:any,b:any){
-  
-     
-  var userDetails=this.userDetails
-  var acno=a.value
-  var pass=b.value
+  var userDetails=this.ds.userDetails
+  var acno=this.acno
+  var pass=this.pass
   if(acno in userDetails){
 
     if(pass==userDetails[acno]["password"]){
       alert("login successfull")
+      this.router.navigateByUrl('dashboard')
+
     }else{
       alert("Incorrect Password")
     }
@@ -48,6 +44,28 @@ login(a:any,b:any){
   }
 
 }
+}
+
+
+// login(a:any,b:any){
+  
+     
+//   var userDetails=this.userDetails
+//   var acno=a.value
+//   var pass=b.value
+//   if(acno in userDetails){
+
+//     if(pass==userDetails[acno]["password"]){
+//       alert("login successfull")
+//     }else{
+//       alert("Incorrect Password")
+//     }
+
+//   }else{
+//     alert("Account Number incorrect or not registered yet")
+//   }
+
+
 
 // acnoChange(event:any){
 
@@ -62,24 +80,7 @@ login(a:any,b:any){
   
 // }
 
-// login(){
 
-//   var userDetails=this.userDetails
-//   var acno=this.acno
-//   var pass=this.pass
-//   if(acno in userDetails){
 
-//     if(pass==userDetails[acno]["password"]){
-//       alert("login successfull")
-//     }else{
-//       alert("Incorrect Password")
-//     }
 
-//   }else{
-//     alert("Account Number incorrect or not registered yet")
-//   }
-
-// }
-
-}
 

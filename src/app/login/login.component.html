@@ -1,16 +1,18 @@
 <h2>{{data}}</h2>
-<div class="container w-50 rounded-5">
+<div class="container w-50 rounded-5" id="maindiv">
 
 
 
     <form action="" class="container text-center mt-5">
 
-        <br><br><input #acno type="text" class="form-control" id="user" [placeholder]="inputplaceholder"><br><br>
+        <br><br><input [(ngModel)]="acno" type="text" class="form-control" id="acno" name="accountnumber" [placeholder]="inputplaceholder"><br><br>
 
-        <input #psw type="password" placeholder="Password" class="form-control" id="pass"><br><br><br>
+        <input [(ngModel)]="pass" type="password" placeholder="Password" class="form-control" name="password" id="pass"><br><br><br>
 
-        <button type="submit" (click)="login(acno,psw)" class="btn btn-primary mb-4">LOGIN</button>
+        <button type="submit" (click)="login()" class="btn btn-primary mb-3">LOGIN</button>
 
     </form>
+
+    <div class="text-center mt-1 mb-3 text-light">Not yet Registered? <a routerLink="register">Click here</a></div>
 
 </div>
