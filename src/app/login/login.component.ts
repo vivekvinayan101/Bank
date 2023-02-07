@@ -26,22 +26,22 @@ ngOnInit(): void {
 
 login(){
 
-  var userDetails=this.ds.userDetails
+  
   var acno=this.acno
   var pass=this.pass
-  if(acno in userDetails){
 
-    if(pass==userDetails[acno]["password"]){
-      alert("login successfull")
-      this.router.navigateByUrl('dashboard')
+  const result=this.ds.login(acno,pass)
 
-    }else{
-      alert("Incorrect Password")
-    }
-
-  }else{
-    alert("Account Number incorrect or not registered yet")
+  if(result){
+    alert("Login Successfull")
+    this.router.navigateByUrl('dashboard')
   }
+  else{
+    alert("Incorrect Account Number or Password")
+  }
+
+  
+  
 
 }
 }

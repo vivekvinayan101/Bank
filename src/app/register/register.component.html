@@ -4,16 +4,16 @@
     <h2 class="text-center">Registration Form</h2>
 
 
+    <form action="" class="container text-center mt-3" (ngSubmit)="register()">
 
-    <form action="" class="container text-center mt-3">
 
-        <br><br><input type="text" class="form-control" id="acno" name="accountnumber" placeholder="Account Number"><br><br>
+        <br><br><input [(ngModel)]="acno" type="text" class="form-control" id="acno" name="accountnumber" placeholder="Account Number"><br><br>
 
-        <input  type="text" name="username" class="form-control" id="user" placeholder="User Name"><br><br>
+        <input [(ngModel)]="user"  type="text" name="username" class="form-control" id="user" placeholder="User Name"><br><br>
 
-        <input  type="password" placeholder="Password" class="form-control" name="password" id="pass"><br><br><br>
+        <input [(ngModel)]="pass" type="password" placeholder="Password" class="form-control" name="password" id="pass"><br><br><br>
 
-        <button type="submit" class="btn btn-primary mb-3" (click)="register()">SIGN UP</button>
+        <button type="submit" class="btn btn-primary mb-3" >SIGN UP</button>
 
     </form>
 
