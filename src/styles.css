@@ -1,10 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Akronim&family=Carter+One&family=Kaushan+Script&family=Noto+Sans:wght@500&family=Poppins&family=Rubik+Microbe&family=Satisfy&family=Train+One&family=Urbanist&display=swap');
 body{
-    background-image:url(./assets/banking.jpg);
+    background-image:url("https://i.postimg.cc/ZK5cgrx1/bankinng.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 850px;
+
 
 
 }
@@ -15,4 +16,9 @@ h1{
 }
 h4{
     font-family: 'Noto Sans', sans-serif;
+}
+
+.style{
+    
+    opacity: 0;
 }

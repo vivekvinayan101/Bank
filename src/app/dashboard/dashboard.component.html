@@ -1,21 +1,31 @@
+<div class="container mt-3 text-center text-light">
+    <h5>{{datedetails | date : 'medium'}}</h5>
+</div>
+
 <h1 class="mt-5 text-center">Welcome <span class="text-warning">{{user}} </span ></h1>
 
-    <div class="container text-center w-50 p-2" style="border: 1px solid white; border-radius: 20px; background-color: rgba(255, 255, 255, 0.09);"><a routerLink="/transaction"><h6 class="text-warning">View Transaction History</h6></a></div >
+    <div [ngClass]="accountnumber?'style':''" class="container text-center w-50 p-2" style="border: 1px solid white; border-radius: 20px; background-color: rgba(255, 255, 255, 0.09);"><a routerLink="/transaction"><h6 class="text-warning">View Transaction History</h6></a></div >
 
-<div class="row p-5 mb-3">
-    <div class=" container col-lg-6 col-md-12 col-sm-12 text-center " id="depo">
+        <div class="container text-center mt-4" id="deletediv">
+            <button class="btn btn-danger " id="delete" (click)="deleteParent()"><i class="fa fa-trash"></i>   Delete Account</button>
+        </div>
 
-        <form action="" class="container text-center mt-3" (ngSubmit)="deposit()">
+        <app-deleteconfirm (onDelete)="Delete($event)" (oncancel)="cancel()" [item]="accountnumber"></app-deleteconfirm>
+
+<div class="row p-5 mb-3" [ngClass]="accountnumber?'style':''">
+    <div  class=" container col-lg-6 col-md-12 col-sm-12 text-center " id="depo">
+
+        <form action="" [formGroup]="depositForm" class="container text-center mt-3" (ngSubmit)="deposit()">
    
             <h2>Deposit</h2>
 
-            <br><br><input [(ngModel)]="acno" type="text" class="form-control" id="acno" name="accountnumber" placeholder="Account Number"><br><br>
+            <br><br><input formControlName="acno" type="text" class="form-control" id="acno" name="accountnumber" placeholder="Account Number"><br><br>
     
-            <input [(ngModel)]="pass"  type="password" placeholder="Password" class="form-control" name="password" id="pass"><br><br><br>
+            <input formControlName="pass"  type="password" placeholder="Password" class="form-control" name="password" id="pass"><br><br><br>
 
-            <input [(ngModel)]="amnt"   type="text" name="amount" class="form-control" id="amount" placeholder="Enter the amount"><br><br>
+            <input formControlName="amnt"   type="text" name="amount" class="form-control" id="amount" placeholder="Enter the amount"><br><br>
     
-            <button type="submit" class="btn btn-primary mb-3" >Deposit</button>
+            <button type="submit" class="btn btn-outline-warning mb-3" >Deposit</button>
     
         </form>
 
@@ -23,19 +33,26 @@
 
     <div class="container col-lg-6 col-md-12 col-sm-12" id="wdrw">
 
-        <form action="" class="container text-center mt-3" (ngSubmit)="withdraw()" >
+        <form action="" [formGroup]="withdrawForm" class="container text-center mt-3" (ngSubmit)="withdraw()" >
    
             <h2>Withdraw</h2>
 
-            <br><br><input [(ngModel)]="acno1"  type="text" class="form-control" id="acno" name="accountnumber" placeholder="Account Number"><br><br>
+            <br><br><input formControlName="acno1"  type="text" class="form-control" id="acno" name="accountnumber" placeholder="Account Number"><br><br>
     
-            <input [(ngModel)]="pass1"  type="password" placeholder="Password" class="form-control" name="password" id="pass"><br><br><br>
+            <input formControlName="pass1"  type="password" placeholder="Password" class="form-control" name="password" id="pass"><br><br><br>
 
-            <input [(ngModel)]="amnt1"   type="text" name="amount" class="form-control" id="amount" placeholder="Enter the amount"><br><br>
+            <input formControlName="amnt1"   type="text" name="amount" class="form-control" id="amount" placeholder="Enter the amount"><br><br>
     
-            <button type="submit" class="btn btn-primary mb-3" >Withdraw</button>
+            <button type="submit" class="btn btn-outline-warning mb-3" >Withdraw</button>
     
         </form>
 
     </div>
+
+    
+        <div class="container text-center mt-4" id="logoutdiv">
+            <button class="btn btn-warning" id="logout" (click)="logOut()"><i class="fa-solid fa-right-from-bracket"></i>  Log Out</button>
+        </div>
+        
+    
 </div>
