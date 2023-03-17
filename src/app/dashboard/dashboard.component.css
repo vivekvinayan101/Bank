@@ -6,11 +6,22 @@ h1{
 }
 
 #depo{
-    border: 2px solid white;
     margin-top: 25px;
     background-color: rgba(255, 255, 255, 0.09);
-    border-radius: 20px;
     width: 600px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    
+}
+input{
+    border: none;
+    outline: none;
+    border-bottom: 2px solid rgb(255, 255, 255);
+    padding: 0.6em;
+    font-size: 1em;
+    width: 100%;
+    background-color: transparent;
+    color: white;
+    
 }
 h2{
     color: white;
@@ -19,14 +30,18 @@ h2{
     font-family: 'Poppins', sans-serif;
 }
 #wdrw{
-    border: 2px solid white;
     margin-top: 25px;
     background-color: rgba(255, 255, 255, 0.09);
-    border-radius: 20px;
     width: 600px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 a{
     text-decoration: none;
+}
+
+button{
+    color: rgb(106, 198, 198);
+
 }
 
 
